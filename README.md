@@ -32,11 +32,11 @@ TXT 文件（每行包含一个路径，对应一个 Karma 导出的 RDF 文件�
    ```json
    {"Vertices":[
    	{"id":0,"entity_type":0,"properties":"{'model': 'ChrSy.fgenesh.mRNA.1',..."},
-   	{...}
+   	{}
    ]},
    {"Edges":[
    	{"source_id":1000,"target_id":3,"relationship":0},
-   	{...}
+   	{}
    ]}
    ```
 
