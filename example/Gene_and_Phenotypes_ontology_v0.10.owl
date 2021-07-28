@@ -1,0 +1,1394 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology"
+     xml:base="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#BeInfluencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#BeInfluencedBy"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Category -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Category"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Has -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Has"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#IsTheHomologyOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#IsTheHomologyOf"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#IsTheSourceOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#IsTheSourceOf"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Name -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Name"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PartOf"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#UnderGOIndexIs -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#UnderGOIndexIs"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gramene_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gramene_ID">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#MSU_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#MSU_ID">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PO_accession -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PO_accession">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#RAP_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#RAP_ID">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#TO_accession -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#TO_accession">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ac -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ac">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#af -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#af">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#allele -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#allele">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#alternative_alleles -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#alternative_alleles">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#alternative_splice_form -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#alternative_splice_form">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#an -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#an">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#annotation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#annotation">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#arm -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#arm">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#as -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#as">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_mq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_mq">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_position -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_position">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_score">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_source -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_source">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bam_type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#base_pairs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#base_pairs">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bit_score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#bit_score">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#cgsnl_gene_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#cgsnl_gene_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Cgsnl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#cgsnl_gene_symbol -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#cgsnl_gene_symbol">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Cgsnl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#chr_seq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#chr_seq">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#chromosome_no -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#chromosome_no">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#cigar -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#cigar">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#code -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#code">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#coordinate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#coordinate">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#definition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#definition">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#dels -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#dels">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#description">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#detail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#detail">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#dp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#dp">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#duplicate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#duplicate">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#end_position -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#end_position">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#explantation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#explantation">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#field -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#field">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#fs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#fs">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#funricegene_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#funricegene_ID">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_family -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_family">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_family_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_family_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene_family"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_id">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_note -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_note">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_parent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_parent">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_score">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_source -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_source">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gff_type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#go_accession -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#go_accession">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#go_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#go_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#go_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#go_type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#haplotypescore -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#haplotypescore">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_acc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_acc">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_match_end -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_match_end">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_match_start -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_match_start">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#hmm_type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#homologous_gene -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#homologous_gene">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene_family"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#interpro_evalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#interpro_evalue">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#interpro_method -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#interpro_method">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ipr_acc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ipr_acc">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ipr_desc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ipr_desc">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ipr_go -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ipr_go">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#is_expressed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#is_expressed">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#is_representative -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#is_representative">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#is_te -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#is_te">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#keyword -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#keyword">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#length">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#length_on_ref -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#length_on_ref">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#locate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#locate">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#locus_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#locus_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#match_end -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#match_end">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#match_start -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#match_start">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mc">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#method_acc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#method_acc">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#method_desc -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#method_desc">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mleac -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mleac">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mleaf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mleaf">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model_detail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model_detail">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model_seq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model_seq">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#model_type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#molecular_weight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#molecular_weight">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mq0 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#mq0">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_all_correctly_aligned -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_all_correctly_aligned">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_first -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_first">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_last -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_last">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_next_segment_reversed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_next_segment_reversed">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_next_segment_unmapped -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_next_segment_unmapped">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_template -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#multi_segment_template">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#next_segment_position -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#next_segment_position">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#nm -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#nm">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#nucleotide_length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#nucleotide_length">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ori -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ori">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#panter_family -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#panter_family">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Physiology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#pfam_evalue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#pfam_evalue">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#pg -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#pg">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#phrase -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#phrase">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#physiology_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#physiology_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Physiology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#physiology_taxon -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#physiology_taxon">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Physiology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#physiology_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#physiology_type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Physiology"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#pi -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#pi">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#prot_match_end -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#prot_match_end">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#prot_match_start -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#prot_match_start">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_detail -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_detail">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_length">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_product -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_product">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_seq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#protein_seq">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#qc_failed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#qc_failed">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#qd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#qd">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#qual -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#qual">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#reference_allele -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#reference_allele">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#rg -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#rg">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#rpa -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#rpa">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ru -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#ru">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#score -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#score">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#secondary_alignment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#secondary_alignment">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq_id">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq_length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq_length">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq_reverse_complemented -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#seq_reverse_complemented">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#sequence_and_quality -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#sequence_and_quality">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#start_position -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#start_position">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#strand -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#strand">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#supplementary_alignment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#supplementary_alignment">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#template_length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#template_length">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#title">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#trait_class -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#trait_class">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#unmapped -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#unmapped">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#value">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_description">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_length -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_length">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_mq -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_mq">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_position -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_position">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_source -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_source">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#vcf_type">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#with -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#with">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#xs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#xs">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_name_synonym(s) -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_name_synonym(s)">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Cgsnl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_symbol_synonym(s) -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#gene_symbol_synonym(s)">
+        <rdfs:domain rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Cgsnl"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Cgsnl -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Cgsnl"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#BeInfluencedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Category"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Bam"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Category"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Vcf"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#IsTheHomologyOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene_family"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Cgsnl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PartOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PartOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PartOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#PartOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene_family -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Gene_family"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Go_classification"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Interpro"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Location"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Pfam"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Phenotypes">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#UnderGOIndexIs"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Physiology"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Physiology -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Physiology"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data"/>
+    
+
+
+    <!-- http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Vcf -->
+
+    <owl:Class rdf:about="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Vcf">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Has"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Attributes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Has"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2021/01/Gene_and_Phenotypes_ontology#Primary_data"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

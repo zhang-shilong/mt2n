@@ -2,7 +2,8 @@ from collections import ChainMap
 from xml.dom.minidom import parse
 
 
-gene_ids = ['MSU_ID']
+gene_ids = ['MSU_ID', 'RAP_ID', 'funricegene_ID', 'Gramene_ID']
+id_mapping = {}
 
 
 class DiGraph:
