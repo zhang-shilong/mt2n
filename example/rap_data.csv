@@ -1,0 +1,6 @@
+RAP_ID	MSU_ID	annotation
+Os001	LOC_Os01g01010.1	"TBC domain containing protein, expressed"
+Os002	LOC_Os01g01010.2	"TBC domain containing protein, expressed"
+Os003	LOC_Os01g01019.1	expressed protein
+\N	LOC_Os01g01030.1	"monocopper oxidase, putative, expressed"
+Os004	\N	test protein

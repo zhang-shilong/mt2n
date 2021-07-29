@@ -1,7 +1,6 @@
 from collections import ChainMap
 from xml.dom.minidom import parse
 
-
 gene_ids = ['MSU_ID', 'RAP_ID', 'funricegene_ID', 'Gramene_ID']
 id_mapping = {}
 
@@ -30,7 +29,8 @@ class DiGraph:
             for nid, data in self.nodes.items():
                 if data['_type'] == 'Gene':
                     for gene_id in gene_ids:
-                        if check_data[gene_id] == data[gene_id]:
+                        if gene_id in check_data.keys() and gene_id in data.keys() and \
+                                check_data[gene_id] == data[gene_id]:
                             return nid
         for nid, data in self.nodes.items():
             if check_data == data:
@@ -177,8 +177,8 @@ class DiGraph:
             print('Edge', i, ':', source, '->', self.edges[source])
 
     def output_to_csv(self,
-                      node_path: str = 'output_all_csv_node.csv',
-                      edge_path: str = 'output_all_csv_edge.csv',
+                      node_path: str = 'output\\output_all_csv_node.csv',
+                      edge_path: str = 'output\\output_all_csv_edge.csv',
                       contains_data: bool = True):
         node_csv = open(node_path, 'w')
         edge_csv = open(edge_path, 'w')
@@ -208,12 +208,13 @@ class DiGraph:
 
 if __name__ == '__main__':
     o = DiGraph()
-    o.read_path('D:\\Downloads\\lab\\rdf_merge\\data\\path.txt')
+    o.read_path('example\\path.txt')
     g = DiGraph()
     g.merge_ttl(o)
 
-    onto = DiGraph()
-    onto.read_owl('D:\\Downloads\\lab\\rdf_merge\\data\\go.owl')
-    g.annotate_on_instances(onto)
+    # onto = DiGraph()
+    # onto.read_owl('D:\\Downloads\\lab\\rdf_merge\\data\\go.owl')
+    # g.annotate_on_instances(onto)
 
-    g.output_to_csv('output_all_csv_node_go.csv', 'output_all_csv_edge_go.csv')
+    # g.output_to_csv('output\\output_all_csv_node_go.csv', 'output\\output_all_csv_edge_go.csv')
+    g.print_graph()
