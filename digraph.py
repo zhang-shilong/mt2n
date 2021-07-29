@@ -2,11 +2,9 @@ from collections import ChainMap
 from xml.dom.minidom import parse
 
 gene_ids = ['MSU_ID', 'RAP_ID', 'funricegene_ID', 'Gramene_ID']
-id_mapping = {}
 
 
 class DiGraph:
-
     def __init__(self):
         self._nodes = {}
         self._edges = {}
@@ -20,11 +18,21 @@ class DiGraph:
         return self._edges
 
     def check_node_from_id(self, nid):
+        """
+        通过结点的ID判断是否存在该点
+        :param nid: 结点ID
+        :return: 若找到结点，则返回结点ID，否则返回-1
+        """
         if nid in self.nodes:
             return nid
         return -1
 
     def check_node_from_data(self, check_data: dict):
+        """
+        通过结点的数据属性判断是否存在该点
+        :param check_data: 欲检查的数据属性
+        :return: 若找到结点，则返回结点ID，否则返回-1
+        """
         if check_data['_type'] == 'Gene':
             for nid, data in self.nodes.items():
                 if data['_type'] == 'Gene':
@@ -38,6 +46,13 @@ class DiGraph:
         return -1
 
     def add_node(self, add_id, add_data: dict = None, method: str = 'id'):
+        """
+        向有向图中加入结点
+        :param add_id: 结点ID
+        :param add_data: 结点数据属性
+        :param method: 加入时检查结点是否存在的方法，“id”表示按ID检查，“data”表示按数据属性检查
+        :return: 返回结点的实际ID（若存在该结点，则返回原结点ID；若不存在该结点，返回用户定义的add_id）
+        """
         if add_data is None:
             add_data = {}
         if method == 'id':
@@ -54,6 +69,12 @@ class DiGraph:
         return nid
 
     def add_edge(self, node1_id, node2_id, **edge_data):
+        """
+        向有向图中加入边
+        :param node1_id: 边的起点
+        :param node2_id: 边的终点
+        :param edge_data: 边的数据属性
+        """
         node1_id = self.add_node(node1_id)
         node2_id = self.add_node(node2_id)
         try:
@@ -65,6 +86,10 @@ class DiGraph:
             self.edges[node1_id] = {node2_id: edge_data}
 
     def read_ttl(self, ttl_file: str):
+        """
+        读取Karma生成的TTL文件，读取的结点ID为TTL文件中结点的ID
+        :param ttl_file: ttl文件路径
+        """
         with open(ttl_file, 'r') as ttl:
             for line in ttl.readlines():
                 line = line.strip()
@@ -93,6 +118,10 @@ class DiGraph:
                             self.nodes[rdf_id][data_type] = data
 
     def read_path(self, path_file: str):
+        """
+        读取多个TTL文件组成的文本文件，每行一个TTL文件的路径
+        :param path_file: 文件路径
+        """
         with open(path_file, 'r') as path:
             for line in path.readlines():
                 line = line.strip()
@@ -102,6 +131,10 @@ class DiGraph:
                     self.read_ttl(line)
 
     def read_owl(self, path: str):
+        """
+        读取OWL文件
+        :param path: OWL文件路径
+        """
         xml = parse(path)
         root = xml.documentElement
 
@@ -128,6 +161,10 @@ class DiGraph:
                 pass
 
     def merge_ttl(self, ttl):
+        """
+        合并多个TTL文件得到的网络，结点ID转换为编号
+        :param ttl: 读取多个TTL文件得到的有向图
+        """
         mapping = {}
         node_id = 0
 
@@ -142,6 +179,10 @@ class DiGraph:
                 self.add_edge(mapping[source], mapping[target], **data)
 
     def annotate_on_instances(self, public_onto):
+        """
+        对网络的GO、TO等进行实例级标注
+        :param public_onto: GO、TO等公共本体的有向图
+        """
         node_id = len(self.nodes)
         associated_data_list = ['go_accession']
         associated_data = ''
@@ -169,6 +210,9 @@ class DiGraph:
                     pass
 
     def print_graph(self):
+        """
+        以易读格式，输出有向图
+        """
         print('Nodes:')
         for i, nid in enumerate(self.nodes):
             print('Node', i, ':', nid, self.nodes[nid])
@@ -180,6 +224,12 @@ class DiGraph:
                       node_path: str = 'output\\output_all_csv_node.csv',
                       edge_path: str = 'output\\output_all_csv_edge.csv',
                       contains_data: bool = True):
+        """
+        输出Gephi可用的可视化文件
+        :param node_path: 结点的目标路径
+        :param edge_path: 边的目标路径
+        :param contains_data: 是否可视化结点的数据属性
+        """
         node_csv = open(node_path, 'w')
         edge_csv = open(edge_path, 'w')
 
