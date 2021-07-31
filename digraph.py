@@ -2,12 +2,16 @@ from collections import ChainMap
 from xml.dom.minidom import parse
 
 gene_ids = ['MSU_ID', 'RAP_ID', 'funricegene_ID', 'Gramene_ID']
+public_onto = {'GO': 'public_onto\\go.owl'}
 
 
 class DiGraph:
     def __init__(self):
         self._nodes = {}
         self._edges = {}
+        self._data_properties = []
+        self._gene_seq = []
+        self._not_gene_seq = []
 
     @property
     def nodes(self):
@@ -16,6 +20,18 @@ class DiGraph:
     @property
     def edges(self):
         return self._edges
+
+    @property
+    def data_properties(self):
+        return self._data_properties
+
+    @property
+    def gene_seq(self):
+        return self._gene_seq
+
+    @property
+    def not_gene_seq(self):
+        return self._not_gene_seq
 
     def check_node_from_id(self, nid):
         """
@@ -29,7 +45,7 @@ class DiGraph:
 
     def check_node_from_data(self, check_data: dict):
         """
-        通过结点的数据属性判断是否存在该点
+        通过结点的数据属性判断是否存在该点（有ID对应关系的会合并，数据属性完全一致的会合并）
         :param check_data: 欲检查的数据属性
         :return: 若找到结点，则返回结点ID，否则返回-1
         """
@@ -41,8 +57,45 @@ class DiGraph:
                                 check_data[gene_id] == data[gene_id]:
                             return nid
         for nid, data in self.nodes.items():
+            for k, v in data.items():
+                if self.is_sequence(k, v):
+                    nid = self.check_sequence(v)
+                    if nid != -1:
+                        return nid
             if check_data == data:
                 return nid
+        return -1
+
+    def is_sequence(self, data_type, data):
+        """
+        检查字符串是否是基因序列
+        :param data_type: 待检查数据属性
+        :param data: 待检查字符串
+        :return: 若是，返回True，否则返回False
+        """
+        if data_type not in self.gene_seq and data_type not in self.not_gene_seq:
+            if type(data) == str and len(data) >= 5:
+                is_seq = True
+                for i in data:
+                    if i not in ['A', 'T', 'C', 'G', 'U', 'a', 't', 'c', 'g', 'u']:
+                        self.not_gene_seq.append(data_type)
+                        is_seq = False
+                if is_seq:
+                    self.gene_seq.append(data_type)
+            else:
+                self.not_gene_seq.append(data_type)
+        return data_type in self.gene_seq
+
+    def check_sequence(self, seq):
+        """
+        通过基因序列判断是否存在该结点
+        :param seq: 待检查基因序列
+        :return: 若找到结点，则返回结点ID，否则返回-1
+        """
+        for nid, data in self.nodes.items():
+            for i in self.gene_seq:
+                if i in data.keys() and data[i] == seq:
+                    return nid
         return -1
 
     def add_node(self, add_id, add_data: dict = None, method: str = 'id'):
@@ -116,6 +169,8 @@ class DiGraph:
                             data = line[2][1:-1]
                             self.add_node(rdf_id)
                             self.nodes[rdf_id][data_type] = data
+                            if data_type not in self.data_properties:
+                                self.data_properties.append(data_type)
 
     def read_path(self, path_file: str):
         """
@@ -162,9 +217,11 @@ class DiGraph:
 
     def merge_ttl(self, ttl):
         """
-        合并多个TTL文件得到的网络，结点ID转换为编号
+        合并多个TTL文件对应的网络，结点ID转换为结点编号
         :param ttl: 读取多个TTL文件得到的有向图
         """
+        for prop in ttl.data_properties:
+            self.data_properties.append(prop)
         mapping = {}
         node_id = 0
 
@@ -178,36 +235,54 @@ class DiGraph:
             for target, data in target_and_data.items():
                 self.add_edge(mapping[source], mapping[target], **data)
 
-    def annotate_on_instances(self, public_onto):
+    def relation_to_public_onto(self):
+        """
+        判断网络是否含有GO、TO等公共本体的信息，是否需要进行实例级标注
+        :return: GO、TO等字符串组成的列表
+        """
+        public_id = {'GO': '', 'TO': ''}
+        data_properties = self.data_properties.copy()
+        for data in self.nodes.values():
+            for k, v in data.items():
+                if k in data_properties and v[:2].upper() not in public_id.keys():
+                    data_properties.remove(k)
+
+        for data_prop in data_properties:
+            cid = 0
+            for nid, data in self.nodes.items():
+                if data_prop in data.keys():
+                    cid = nid
+                    break
+            public_id[self.nodes[cid][data_prop][:2].upper()] = data_prop
+        return public_id
+
+    def annotate_on_instances(self):
         """
         对网络的GO、TO等进行实例级标注
-        :param public_onto: GO、TO等公共本体的有向图
         """
-        node_id = len(self.nodes)
-        associated_data_list = ['go_accession']
-        associated_data = ''
-        mapping = {}  # onto_accession: id_in_graph
+        relation = self.relation_to_public_onto()
 
-        # for i in associated_data_list:
-        #     if i in list(public_onto.nodes.values()):
-        #         print(i)
-        #         associated_data = i
-        associated_data = 'go_accession'
-        if not associated_data:
-            return
+        for pid, associated_data in relation.items():
+            if associated_data:
 
-        for accession, data in public_onto.nodes.items():
-            self.add_node(node_id, dict(ChainMap({associated_data: accession, '_type': 'PublicOnto'},
-                                                 public_onto.nodes[accession])))
-            mapping[accession] = node_id
-            node_id += 1
+                node_id = len(self.nodes)
+                mapping = {}  # onto_accession: id_in_graph
 
-        for nid, data in self.nodes.items():
-            if associated_data in data.keys():
-                try:
-                    self.add_edge(nid, mapping[data[associated_data]], relationship='PublicOntoMapping')
-                except KeyError:
-                    pass
+                onto = DiGraph()
+                onto.read_owl(public_onto[pid])
+
+                for accession, data in onto.nodes.items():
+                    self.add_node(node_id, dict(ChainMap({associated_data: accession, '_type': 'PublicOnto'},
+                                                         onto.nodes[accession])))
+                    mapping[accession] = node_id
+                    node_id += 1
+
+                for nid, data in self.nodes.items():
+                    if associated_data in data.keys():
+                        try:
+                            self.add_edge(nid, mapping[data[associated_data]], relationship='PublicOntoMapping')
+                        except KeyError:
+                            pass
 
     def print_graph(self):
         """
@@ -215,10 +290,10 @@ class DiGraph:
         """
         print('Nodes:')
         for i, nid in enumerate(self.nodes):
-            print('Node', i, ':', nid, self.nodes[nid])
+            print('Node {}: {} {}'.format(i, nid, self.nodes[nid]))
         print('Edges:')
         for i, source in enumerate(self.edges):
-            print('Edge', i, ':', source, '->', self.edges[source])
+            print('Edge {}: {} -> {}'.format(i, source, self.edges[source]))
 
     def output_to_csv(self,
                       node_path: str = 'output\\output_all_csv_node.csv',
@@ -258,13 +333,11 @@ class DiGraph:
 
 if __name__ == '__main__':
     o = DiGraph()
-    o.read_path('example\\path.txt')
+    o.read_path('D:\\Downloads\\lab\\rdf_merge\\data\\path.txt')
     g = DiGraph()
     g.merge_ttl(o)
 
-    # onto = DiGraph()
-    # onto.read_owl('D:\\Downloads\\lab\\rdf_merge\\data\\go.owl')
-    # g.annotate_on_instances(onto)
-
+    # g.annotate_on_instances()
     # g.output_to_csv('output\\output_all_csv_node_go.csv', 'output\\output_all_csv_edge_go.csv')
+
     g.print_graph()
