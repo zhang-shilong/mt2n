@@ -330,14 +330,95 @@ class DiGraph:
         node_csv.close()
         edge_csv.close()
 
+    def output_to_json(self,
+                       path1: str = 'output\\output_all_json.json',
+                       path2: str = 'output\\output_all_json.txt'):
+        """
+        输出JSON格式的网络
+        :param path1: JSON文件目标路径
+        :param path2: 实体和关系的对应关系文件的目标路径
+        """
+        entity_type = {}
+        relationship_type = {}
+        nodes_list = list(self.nodes.items())
+        edges_list = list(self.edges.items())
+
+        json = open(path1, 'w')
+        json.write("{\"Vertices\":[\n")
+        entity_num = 0
+
+        # Print nodes except the last one
+        for index, node in nodes_list[:-1]:
+            if node['_type'] not in entity_type:
+                entity_type[node['_type']] = entity_num
+                entity_num = entity_num + 1
+            json.write("\t{\"id\":%d,\"entity_type\":%d,\"properties\":\"{" % (index, entity_type[node['_type']]))
+            del node['_type']
+            node = list(node.items())
+            for k, v in node[:-1]:
+                json.write("\\\"%r\\\":\\\"%r\\\"," % (k, v))
+            if len(node) > 0:
+                json.write("\\\"%r\\\":\\\"%r\\\"" % (node[-1][0], node[-1][1]))
+            json.write("}\"},\n")
+
+        # Print last node
+        index, node = nodes_list[-1]
+        if node['_type'] not in entity_type:
+            entity_type[node['_type']] = entity_num
+        json.write("\t{\"id\":%d,\"entity_type\":%d,\"properties\":\"{" % (index, entity_type[node['_type']]))
+        del node['_type']
+        node = list(node.items())
+        for k, v in node[:-1]:
+            json.write("\\\"%r\\\":\\\"%r\\\"," % (k, v))
+        if len(node) > 0:
+            json.write("\\\"%r\\\":\\\"%r\\\"" % (node[-1][0], node[-1][1]))
+        json.write("}\"},\n")
+
+        json.write("]},\n")
+
+        json.write("{\"Edges\":[\n")
+        relationship_num = 0
+
+        # Print edges except the last one
+        for edge in edges_list[:-1]:
+            r = ''
+            for v in edge[1].values():
+                r = v['relationship']
+            if r not in relationship_type:
+                relationship_type[r] = relationship_num
+                relationship_num = relationship_num + 1
+            json.write("\t{\"source_id\":%r,\"target_id\":%r,\"relationship\":%r},\n" % (
+                edge[0], edge[1], relationship_type[r]))
+
+        # Print last edge
+        edge = edges_list[-1]
+        r = ''
+        for v in edge[1].values():
+            r = v['relationship']
+        if r not in relationship_type:
+            relationship_type[r] = relationship_num
+        json.write("\t{\"source_id\":%r,\"target_id\":%r,\"relationship\":%r}\n" % (
+            edge[0], edge[1], relationship_type[r]))
+
+        json.write("]}\n")
+        json.close()
+
+        txt = open(path2, 'w')
+        for key, value in entity_type.items():
+            txt.write("%s\t%s\n" % (key, value))
+        txt.write("\n")
+        for key, value in relationship_type.items():
+            txt.write("%s\t%s\n" % (key, value))
+        txt.close()
+
 
 if __name__ == '__main__':
     o = DiGraph()
-    o.read_path('D:\\Downloads\\lab\\rdf_merge\\data\\path.txt')
+    o.read_path('example\\path.txt')
     g = DiGraph()
     g.merge_ttl(o)
 
     # g.annotate_on_instances()
     # g.output_to_csv('output\\output_all_csv_node_go.csv', 'output\\output_all_csv_edge_go.csv')
 
-    g.print_graph()
+    g.output_to_json()
