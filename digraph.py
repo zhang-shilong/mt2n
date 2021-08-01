@@ -4,6 +4,8 @@ from xml.dom.minidom import parse
 gene_ids = ['MSU_ID', 'RAP_ID', 'funricegene_ID', 'Gramene_ID']
 public_onto = {'GO': 'public_onto\\go.owl'}
 
+gene_seq_check = False
+
 
 class DiGraph:
     def __init__(self):
@@ -57,11 +59,12 @@ class DiGraph:
                                 check_data[gene_id] == data[gene_id]:
                             return nid
         for nid, data in self.nodes.items():
-            for k, v in data.items():
-                if self.is_sequence(k, v):
-                    nid = self.check_sequence(v)
-                    if nid != -1:
-                        return nid
+            if gene_seq_check:
+                for k, v in data.items():
+                    if self.is_sequence(k, v):
+                        nid = self.check_sequence(v)
+                        if nid != -1:
+                            return nid
             if check_data == data:
                 return nid
         return -1
@@ -94,7 +97,7 @@ class DiGraph:
         """
         for nid, data in self.nodes.items():
             for i in self.gene_seq:
-                if i in data.keys() and data[i] == seq:
+                if i in data.keys() and data[i].upper() == seq.upper():
                     return nid
         return -1
 
