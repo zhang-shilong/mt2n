@@ -4,7 +4,7 @@ from xml.dom.minidom import parse
 gene_ids = ['MSU_ID', 'RAP_ID', 'funricegene_ID', 'Gramene_ID']
 public_onto = {'GO': 'public_onto\\go.owl'}
 
-gene_seq_check = False
+gene_seq_check = False  # 未完成的功能，勿设置为True
 
 
 class DiGraph:
@@ -150,6 +150,7 @@ class DiGraph:
             for line in ttl.readlines():
                 line = line.strip()
                 if line:
+
                     line = line.split(' ', 2)
                     line[2] = line[2][:-2]
 
