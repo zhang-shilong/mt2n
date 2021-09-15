@@ -199,23 +199,24 @@ class DiGraph:
 
         for i in root.getElementsByTagName('owl:Class'):
             try:
-                go_accession = i.getAttribute('rdf:about').split('/')[4]
-                go_name = None
+                accession = i.getAttribute('rdf:about').split('/')[4]
+                name = None
                 obo_namespace = None
 
                 for child in i.childNodes:
                     if child.nodeName == 'rdfs:label':
-                        go_name = child.firstChild.data
+                        name = child.firstChild.data
                     elif child.nodeName == 'oboInOwl:hasOBONamespace':
                         obo_namespace = child.firstChild.data
-                self.add_node(go_accession, {'go_name': go_name, 'obo_namespace': obo_namespace})
+                accession = accession.replace('_', ':')
+                self.add_node(accession, {'name': name, 'obo_namespace': obo_namespace})
 
                 subclass_nodes = i.getElementsByTagName('rdfs:subClassOf')
                 if subclass_nodes:
                     for node in subclass_nodes:
-                        to_go_accession = node.getAttribute('rdf:resource').split('/')[4]
-                        if to_go_accession:
-                            self.add_edge(go_accession, to_go_accession, relationship='SubclassOf')
+                        to_accession = node.getAttribute('rdf:resource').split('/')[4]
+                        if to_accession:
+                            self.add_edge(accession, to_accession, relationship='SubclassOf')
             except IndexError:
                 pass
 
@@ -282,7 +283,7 @@ class DiGraph:
                     node_id += 1
 
                 for nid, data in self.nodes.items():
-                    if associated_data in data.keys():
+                    if 'PublicOnto' != data['_type'] and associated_data in data.keys():
                         try:
                             self.add_edge(nid, mapping[data[associated_data]], relationship='PublicOntoMapping')
                         except KeyError:
@@ -385,24 +386,23 @@ class DiGraph:
 
         # Print edges except the last one
         for edge in edges_list[:-1]:
-            r = ''
-            for v in edge[1].values():
-                r = v['relationship']
-            if r not in relationship_type:
-                relationship_type[r] = relationship_num
-                relationship_num = relationship_num + 1
-            json.write("\t{\"source_id\":%r,\"target_id\":%r,\"relationship\":%r},\n" % (
-                edge[0], edge[1], relationship_type[r]))
+            for target, value in edge[1].items():
+                relationship = value['relationship']
+                if relationship not in relationship_type:
+                    relationship_type[relationship] = relationship_num
+                    relationship_num = relationship_num + 1
+                json.write("\t{\"source_id\":%r,\"target_id\":%r,\"relationship\":%r},\n" % (
+                    edge[0], target, relationship_type[relationship]))
 
         # Print last edge
         edge = edges_list[-1]
-        r = ''
-        for v in edge[1].values():
-            r = v['relationship']
-        if r not in relationship_type:
-            relationship_type[r] = relationship_num
-        json.write("\t{\"source_id\":%r,\"target_id\":%r,\"relationship\":%r}\n" % (
-            edge[0], edge[1], relationship_type[r]))
+        for target, value in edge[1].items():
+            relationship = value['relationship']
+            if relationship not in relationship_type:
+                relationship_type[relationship] = relationship_num
+                relationship_num = relationship_num + 1
+            json.write("\t{\"source_id\":%r,\"target_id\":%r,\"relationship\":%r},\n" % (
+                edge[0], target, relationship_type[relationship]))
 
         json.write("]}\n")
         json.close()
@@ -418,11 +418,9 @@ class DiGraph:
 
 if __name__ == '__main__':
     o = DiGraph()
-    o.read_path('example\\path.txt')
+    o.read_path('output\\path.txt')
     g = DiGraph()
     g.merge_ttl(o)
 
-    # g.annotate_on_instances()
-    # g.output_to_csv('output\\output_all_csv_node_go.csv', 'output\\output_all_csv_edge_go.csv')
-
+    g.annotate_on_instances()
     g.output_to_json()
