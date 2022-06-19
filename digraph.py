@@ -1,7 +1,9 @@
 from collections import ChainMap
 from xml.dom.minidom import parse
+import json
 
-gene_ids = ['MSU_ID', 'RAP_ID', 'funricegene_ID', 'Gramene_ID']
+
+gene_ids = [""]  # 请修改该列表的内容，程序会以此作为依据合并实体
 public_onto = {'GO': 'public_onto\\go.owl'}
 
 gene_seq_check = False  # 未完成的功能，勿设置为True
@@ -158,18 +160,18 @@ class DiGraph:
                         # read edges
                         source = line[0]
                         target = line[2]
-                        relationship = line[1].split('#')[1][:-1]
+                        relationship = line[1]
                         self.add_edge(source, target, relationship=relationship)
 
                     else:
                         # read nodes
                         rdf_id = line[0]
                         if line[2][0] == '<':
-                            entity_type = line[2].split('#')[1][:-1]
+                            entity_type = line[2]
                             self.add_node(rdf_id)
                             self.nodes[rdf_id]['_type'] = entity_type
                         else:
-                            data_type = line[1].split('#')[1][:-1]
+                            data_type = line[1]
                             data = line[2][1:-1]
                             self.add_node(rdf_id)
                             self.nodes[rdf_id][data_type] = data
@@ -422,5 +424,5 @@ if __name__ == '__main__':
     g = DiGraph()
     g.merge_ttl(o)
 
-    g.annotate_on_instances()
-    g.output_to_json()
+    # g.annotate_on_instances()
+    g.output_to_csv()

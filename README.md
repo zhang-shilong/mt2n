@@ -49,4 +49,10 @@ TXT 文件（每行包含一个路径，对应一个 Karma 导出的 RDF 文件�
    Go_classification	1
    
    PartOf	0
+   PublicOntoMapping 1
    ```
+
+3. 用于 Gephi 可视化的 CSV 文件
+
+   结点和边各一个文件。
+
