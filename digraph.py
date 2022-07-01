@@ -1,12 +1,50 @@
 from collections import ChainMap
 from xml.dom.minidom import parse
-import json
+import re
 
-
-gene_ids = [""]  # 请修改该列表的内容，程序会以此作为依据合并实体
-public_onto = {'GO': 'public_onto\\go.owl'}
-
+property_path = "PathProperty.properties"
 gene_seq_check = False  # 未完成的功能，勿设置为True
+
+
+class Properties:
+    def __init__(self, file_name):
+        self.properties = dict()
+        self.read_properties(file_name)
+
+    def read_properties(self, file_name):
+        try:
+            pro_file = open(file_name, 'r', encoding='utf-8')
+            for line in pro_file:
+                line = line.strip()
+                if line:
+                    strs = re.split(r"\s=\s", line)
+                    self.properties[strs[0]] = strs[1]
+        except Exception as e:
+            raise e
+        else:
+            pro_file.close()
+
+    def get_property(self, param):
+        return self.properties[param]
+
+    def read_list(self, param):
+        res = list()
+        with open(self.properties[param], "r") as file:
+            for line in file.readlines():
+                line = line.strip()
+                if line:
+                    res.append(line)
+        return res
+
+    def read_dict(self, param):
+        res = dict()
+        with open(self.properties[param], "r") as file:
+            for line in file.readlines():
+                line = line.strip()
+                if line:
+                    strs = line.split("\t")
+                    res[strs[0]] = strs[1]
+        return res
 
 
 class DiGraph:
@@ -56,7 +94,7 @@ class DiGraph:
         if check_data['_type'] == 'Gene':
             for nid, data in self.nodes.items():
                 if data['_type'] == 'Gene':
-                    for gene_id in gene_ids:
+                    for gene_id in identifiers:
                         if gene_id in check_data.keys() and gene_id in data.keys() and \
                                 check_data[gene_id] == data[gene_id]:
                             return nid
@@ -419,8 +457,13 @@ class DiGraph:
 
 
 if __name__ == '__main__':
+    properties = Properties(property_path)
+    identifiers = properties.read_list("mt2n.identifiersPath")
+    public_onto = properties.read_dict("mt2n.publicOntoPath")
+    ttl_path = properties.get_property("mt2n.ttlPath")
+
     o = DiGraph()
-    o.read_path('output\\path.txt')
+    o.read_path(ttl_path)
     g = DiGraph()
     g.merge_ttl(o)
 
