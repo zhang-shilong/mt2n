@@ -1,6 +1,9 @@
 from collections import ChainMap
 from xml.dom.minidom import parse
 import re
+import os
+import sys
+
 
 property_path = "PathProperty.properties"
 gene_seq_check = False  # 未完成的功能，勿设置为True
@@ -457,6 +460,7 @@ class DiGraph:
 
 
 if __name__ == '__main__':
+    os.chdir(os.path.dirname(__file__))
     properties = Properties(property_path)
     identifiers = properties.read_list("mt2n.identifiersPath")
     public_onto = properties.read_dict("mt2n.publicOntoPath")

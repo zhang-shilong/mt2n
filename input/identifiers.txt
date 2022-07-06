@@ -1,1 +1,1 @@
-label
+<http://www.semanticweb.org/zhang/ontologies/2021/ExampleOntology#Gene>	<http://www.semanticweb.org/zhang/ontologies/2021/ExampleOntology#MSU_ID>
