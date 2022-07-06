@@ -1,6 +1,7 @@
 import re
 import os
 import json
+import copy
 
 
 class Properties:
@@ -66,10 +67,11 @@ class DiGraph:
         self.node_count = 0
         self.exist_edges = dict()  # {source_id: set of target_id}
         self.id_mapping = dict()  # {raw_id: new_id}
-        self.entity_type_to_id = dict()
-        self.id_to_entity_type = dict()
+        self.entity_type_to_id = dict()  # {entity_type: id}
+        self.id_to_entity_type = dict()  # {id: entity_type}
         self.entity_type_count = 0
         self.relationship_type_to_id = dict()  # {relationship_type: id}
+        self.id_to_relationship_type = dict()  # {relationship_type: id}
         self.relationship_type_count = 0
 
     def check_node_exists(self, entity_type, properties):
@@ -124,6 +126,7 @@ class DiGraph:
                             relationship = line[1]
                             if relationship not in self.relationship_type_to_id.keys():
                                 self.relationship_type_to_id[relationship] = self.relationship_type_count
+                                self.id_to_relationship_type[self.relationship_type_count] = relationship
                                 relationship = self.relationship_type_count
                                 self.relationship_type_count += 1
                             else:
@@ -165,6 +168,26 @@ class DiGraph:
         with open(output_path, "w") as file:
             json.dump(self.graph, file, ensure_ascii=False, indent=4)
 
+    def dump_csv_for_gephi(self):
+        node_path = self.properties.read_property("mt2n.outputCsvNodePath")
+        edge_path = self.properties.read_property("mt2n.outputCsvEdgePath")
+        node_path = open(node_path, 'w')
+        edge_path = open(edge_path, 'w')
+        node_path.write('Id,Label,Polygon\n')
+        edge_path.write('Source,Target,Type,Label,Weight\n')
+
+        tmp_node_count = self.node_count
+        for edge in self.graph["Edges"]:
+            edge_path.write("{},{},{},\"{}\",{}\n".format(edge["source_id"], edge["target_id"], "Directed", self.id_to_relationship_type[edge["relationship"]], 1))
+        for vertex in self.graph["Vertices"]:
+            node_path.write("{},\"{}\",{}\n".format(vertex["id"], self.id_to_entity_type[vertex["entity_type"]], 0))
+            for k, v in vertex["properties"].items():
+                node_path.write("{},\"{}\",{}\n".format(tmp_node_count, v, 3))
+                edge_path.write("{},{},{},\"{}\",{}\n".format(vertex["id"], tmp_node_count, "Undirected", k, 1))
+                tmp_node_count += 1
+        node_path.close()
+        edge_path.close()
+
     def output_mapping(self):
         entity_path = self.properties.read_property("mt2n.outputEntityPath")
         with open(entity_path, "w") as file:
@@ -175,9 +198,13 @@ class DiGraph:
             for k, v in self.relationship_type_to_id.items():
                 file.write("{}\t{}\n".format(v, k))
 
+    def dump(self):
+        self.dump_json()
+        self.dump_csv_for_gephi()
+        self.output_mapping()
+
 
 if __name__ == "__main__":
     g = DiGraph("PathProperty.properties")
     g.merge_ttl()
-    g.dump_json()
-    g.output_mapping()
+
