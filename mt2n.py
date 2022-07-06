@@ -12,7 +12,7 @@ class Properties:
 
     def read_properties_file(self, file_name):
         try:
-            prop_file = open(file_name, 'r', encoding='utf-8')
+            prop_file = open(file_name, "r", encoding="utf-8")
             for line in prop_file:
                 line = line.strip()
                 if not line:
@@ -171,10 +171,10 @@ class DiGraph:
     def dump_csv_for_gephi(self):
         node_path = self.properties.read_property("mt2n.outputCsvNodePath")
         edge_path = self.properties.read_property("mt2n.outputCsvEdgePath")
-        node_path = open(node_path, 'w')
-        edge_path = open(edge_path, 'w')
-        node_path.write('Id,Label,Polygon\n')
-        edge_path.write('Source,Target,Type,Label,Weight\n')
+        node_path = open(node_path, "w")
+        edge_path = open(edge_path, "w")
+        node_path.write("Id,Label,Polygon\n")
+        edge_path.write("Source,Target,Type,Label,Weight\n")
 
         tmp_node_count = self.node_count
         for edge in self.graph["Edges"]:
@@ -207,4 +207,4 @@ class DiGraph:
 if __name__ == "__main__":
     g = DiGraph("PathProperty.properties")
     g.merge_ttl()
-
+    g.dump()
