@@ -1,7 +1,6 @@
 import re
 import os
 import json
-import copy
 
 
 class Properties:
@@ -19,8 +18,8 @@ class Properties:
                     continue
                 if line.startswith("#"):
                     continue
-                strs = re.split(r"\s=\s", line, 1)
-                self.properties[strs[0]] = strs[1]
+                contents = re.split(r"\s=\s", line, 1)
+                self.properties[contents[0]] = contents[1]
         except Exception as e:
             raise e
         else:
@@ -50,8 +49,8 @@ class Properties:
                     continue
                 if line.startswith("#"):
                     continue
-                strs = line.split("\t")
-                res[strs[0]] = strs[1]
+                contents = line.split("\t")
+                res[contents[0]] = contents[1]
         return res
 
 
@@ -105,7 +104,8 @@ class DiGraph:
             self.exist_edges[source_id] = set()
         if target_id not in self.exist_edges[source_id]:
             self.exist_edges[source_id].add(target_id)
-            self.graph["Edges"].append({"source_id": source_id, "target_id": target_id, "relationship": relationship_type})
+            self.graph["Edges"].append(
+                {"source_id": source_id, "target_id": target_id, "relationship": relationship_type})
 
     def merge_ttl(self):
         ttl_path = self.properties.read_list("mt2n.ttlPath")
@@ -178,7 +178,8 @@ class DiGraph:
 
         tmp_node_count = self.node_count
         for edge in self.graph["Edges"]:
-            edge_path.write("{},{},{},\"{}\",{}\n".format(edge["source_id"], edge["target_id"], "Directed", self.id_to_relationship_type[edge["relationship"]], 1))
+            edge_path.write("{},{},{},\"{}\",{}\n".format(edge["source_id"], edge["target_id"], "Directed",
+                                                          self.id_to_relationship_type[edge["relationship"]], 1))
         for vertex in self.graph["Vertices"]:
             node_path.write("{},\"{}\",{}\n".format(vertex["id"], self.id_to_entity_type[vertex["entity_type"]], 0))
             for k, v in vertex["properties"].items():
