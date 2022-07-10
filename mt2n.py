@@ -1,6 +1,7 @@
 import re
 import os
 import json
+import time
 
 
 class Properties:
@@ -60,6 +61,8 @@ class DiGraph:
         os.chdir(os.path.dirname(__file__))
         self.properties = Properties(property_path)
         self.identifiers = self.properties.read_dict("mt2n.identifiersPath")
+        self.origin_node_count = 0
+        self.origin_edge_count = 0
 
         self.graph = {"Vertices": [], "Edges": []}
         self.exist_entities = dict()  # {entity_type: {identifier_value: id}}
@@ -77,9 +80,11 @@ class DiGraph:
         if entity_type not in self.exist_entities.keys():
             self.exist_entities[entity_type] = dict()
         if self.id_to_entity_type[entity_type] in self.identifiers.keys():
-            tmp = properties[self.identifiers[self.id_to_entity_type[entity_type]]]
-            if tmp in self.exist_entities[entity_type].keys():
-                return self.exist_entities[entity_type][tmp]  # return id
+            identifier = self.identifiers[self.id_to_entity_type[entity_type]]
+            if identifier in properties.keys():
+                tmp = properties[identifier]
+                if tmp in self.exist_entities[entity_type].keys():
+                    return self.exist_entities[entity_type][tmp]  # return id
         return -1
 
     def add_node(self, raw_id, entity_type, properties):
@@ -88,8 +93,10 @@ class DiGraph:
             self.graph["Vertices"].append({"id": self.node_count, "entity_type": entity_type, "properties": properties})
             self.id_mapping[raw_id] = self.node_count
             if self.id_to_entity_type[entity_type] in self.identifiers.keys():
-                tmp = properties[self.identifiers[self.id_to_entity_type[entity_type]]]
-                self.exist_entities[entity_type][tmp] = self.node_count
+                identifier = self.identifiers[self.id_to_entity_type[entity_type]]
+                if identifier in properties.keys():
+                    tmp = properties[self.identifiers[self.id_to_entity_type[entity_type]]]
+                    self.exist_entities[entity_type][tmp] = self.node_count
             self.node_count += 1
         else:
             self.id_mapping[raw_id] = self.node_count
@@ -121,6 +128,7 @@ class DiGraph:
                         line[2] = line[2][:-2]
                         if line[2][0] == '_':
                             # read edges
+                            self.origin_edge_count += 1
                             source = line[0]
                             target = line[2]
                             relationship = line[1]
@@ -134,6 +142,7 @@ class DiGraph:
                             edges_tmp.append((source, target, relationship))
                         else:
                             # read nodes
+                            self.origin_node_count += 1
                             rdf_id = line[0]
                             if line[2].startswith("<"):
                                 entity_type = line[2]
@@ -203,9 +212,18 @@ class DiGraph:
         self.dump_json()
         self.dump_csv_for_gephi()
         self.output_mapping()
+        print("# of nodes before merging: {}".format(self.origin_node_count))
+        print("# of edges before merging: {}".format(self.origin_edge_count))
+        print("# of nodes after merging: {}".format(self.node_count))
+        print("# of edges after merging: {}".format(len(self.graph["Edges"])))
 
 
 if __name__ == "__main__":
+    start = time.time()
+
     g = DiGraph("PathProperty.properties")
     g.merge_ttl()
     g.dump()
+
+    end = time.time()
+    print("Total time cost: {}".format(end - start))
